@@ -3,7 +3,7 @@ I've established the repos as a temporary resting place for data extracted from 
 
 If you peek at these records, each element in the array gives some json describing:
 
-i) the input document, specifically the arxiv URL (as per the policy for working with arxi pdfs, found here : https://arxiv.org/help/bulk_data_s3)
+i) the input document, specifically the arxiv URL (as per the policy found here : https://arxiv.org/help/bulk_data_s3)
 
 ii) the page that the result comes from, specifically an image of the page
 
@@ -11,9 +11,9 @@ iii) the JSON data file extracted from the region of the page, which corresponds
 
 iv) the input bounding box region extracted from the page, and lastly
 
-v) an image showing the fit produced by the simple-scatter-plot API method eg., the locations whose index value corresponds to the position of the corresponding x-y values in the output JSON
+v) an image showing the fit produced by the simple-scatter-plot API method eg., the locations whose index value corresponds to the position of the corresponding x-y values in the output JSON.
 
-one such element of result.json looks like: 
+One such element of result.json looks like: 
 
 {
 "url":"http://arxiv.org/abs/astro-ph/0001003",
@@ -27,8 +27,9 @@ one such element of result.json looks like:
 "fit":"outputs/e154b55290bc2eea70f5a226806c2072_out.png"
 }
 
+
 If you wanted to import this complete array into mongo DB (for example) , you could issue: 
 
 mongoimport --db dbName --collection collectionName --file result.json --jsonArray
 
-Last but not least, a selection of the output images is available in the file arXiv_pdf_0001_001_text_out.tar.gz and the text extraction results are available in arXiv_pdf_0001_001_text_out.tar.gz. 
+With a few tweaks, you could use the code of these repos to create a browser for the data: https://github.com/wjb19/basic_fig_search. Last but not least, a selection of the output images is available in the file arXiv_pdf_0001_001_text_out.tar.gz and the text extraction results are available in arXiv_pdf_0001_001_text_out.tar.gz. The entire dataset is too large for github, although I'm happy to supply the input pages and bounding box regions if needed.
